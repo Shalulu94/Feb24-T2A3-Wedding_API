@@ -17,3 +17,11 @@ Within this project, I will be using Trello to plan my tasks and keep track of w
 - In progress: Currently started working on but not yet ready for testing. Ideally I will tackle one item at a time, however there could be multiple pieces in play at any given time
 - Testing: Once an task has been completed the functionality will need to be tested. This will not apply to all items, but mainly part of the coding process
 - Completed: Tasks that have passed the testing phase and are now ready
+
+Using cards with checklists to track the progress of major tasks within the project will help me manage my time more effectively and keep track of my activities. 
+
+This Trello board will be updated regularly as I complete specific tasks. 
+
+## Entity Relational Diagram
+
+
