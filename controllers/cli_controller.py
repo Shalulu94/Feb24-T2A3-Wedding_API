@@ -1,3 +1,5 @@
+from datetime import date
+
 from flask import Blueprint
 
 from init import db, bcrypt
@@ -83,18 +85,21 @@ def seed_tables():
         Rating(
             score="5",
             review="Very happy with the service",
+            date=date.today(),
             store=stores[1],
             user=users[0]
         ),
         Rating(
             score="3",
             review="Not happy with the service",
+            date=date.today(),
             store=stores[1],
             user=users[1]
         ),
          Rating(
             score="4",
             review="Pretty happy with the service",
+            date=date.today(),
             store=stores[2],
             user=users[0]
         ),

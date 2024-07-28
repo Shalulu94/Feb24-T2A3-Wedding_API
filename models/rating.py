@@ -9,6 +9,7 @@ class Rating(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     score = db.Column(db.Integer, nullable=False)
     review = db.Column(db.String)
+    date = db.Column(db.Date)
 
     store_id = db.Column(db.Integer, db.ForeignKey("stores.id"))
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
@@ -24,7 +25,7 @@ class RatingSchema(ma.Schema):
     user = fields.Nested('UserSchema', only=["first_name", "email"])
 
     class Meta:
-        fields = ("id", "score", "review", "store", "user")
+        fields = ("id", "score", "review", "date", "store", "user")
 
 
 # handle a single user object

@@ -13,7 +13,7 @@ class Store(db.Model):
     supplier_id = db.Column(db.Integer, db.ForeignKey("suppliers.id"))
 
     supplier = db.relationship('Supplier', back_populates='stores')
-    ratings = db.relationship("Rating", back_populates="store")
+    ratings = db.relationship("Rating", back_populates="store", cascade="all, delete")
     
 
 

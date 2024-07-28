@@ -5,9 +5,11 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 
 from init import db
 from models.store import Store, store_schema, stores_schema
+from controllers.rating_controller import ratings_bp
 
 
 stores_bp = Blueprint("stores", __name__, url_prefix="/stores")
+stores_bp.register_blueprint(ratings_bp)
 
 # GET all stores
 @stores_bp.route("/")
