@@ -10,7 +10,7 @@ class Store(db.Model):
     store_name = db.Column(db.String, nullable=False)
     description = db.Column(db.String)
 
-    supplier_id = db.Column(db.Integer, db.ForeignKey("suppliers.id", nullable=False))
+    supplier_id = db.Column(db.Integer, db.ForeignKey("suppliers.id"))
 
     supplier = db.relationship('Supplier', back_populates='stores')
     
@@ -25,7 +25,7 @@ class StoreSchema(ma.Schema):
 
 
 # handle a single user object
-supplier_schema = SupplierSchema(exclude=["password"])
+store_schema = StoreSchema()
 
 # handles a list of user objects
-suppliers_schema = SupplierSchema(many=True, exclude=["password"])
+stores_schema = StoreSchema(many=True)

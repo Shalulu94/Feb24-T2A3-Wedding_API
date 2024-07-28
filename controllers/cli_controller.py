@@ -3,6 +3,7 @@ from flask import Blueprint
 from init import db, bcrypt
 from models.user import User
 from models.supplier import Supplier
+from models.store import Store
 
 db_commands = Blueprint("db", __name__)
 
@@ -56,6 +57,26 @@ def seed_tables():
     ]
 
     db.session.add_all(suppliers)
+
+    stores = [
+        Store(
+            store_name="Store1",
+            description="we sell food",
+            supplier=suppliers[1]
+        ),
+        Store(
+            store_name="Store2",
+            description="We sell drinks",
+            supplier=suppliers[0]
+        ),
+        Store(
+            store_name="Store3",
+            description="We sell snacks",
+            supplier=suppliers[1]
+        ),
+    ]
+
+    db.session.add_all(stores)
 
     db.session.commit()
 

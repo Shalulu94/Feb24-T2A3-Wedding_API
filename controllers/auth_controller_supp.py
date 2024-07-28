@@ -47,7 +47,7 @@ def register_supplier():
         
 
 @auth_supp_bp.route("/login", methods=["POST"])
-def login_user():
+def login_supplier():
     # get the data from the body of the request
     body_data = request.get_json()
     # find the user in DB with that email address
@@ -58,7 +58,7 @@ def login_user():
         # create jwt
         token = create_access_token(identity=str(supplier.id), expires_delta=timedelta(days=1))
         # respond back
-        return {"email": supplier.email, "is_admin": supplier.is_admin, "token": token}
+        return {"company_email": supplier.company_email, "is_admin": supplier.is_admin, "token": token}
     
     # else
     else:
