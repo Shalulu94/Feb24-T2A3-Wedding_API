@@ -26,4 +26,7 @@ def create_app():
     from controllers.auth_controller_supp import auth_supp_bp
     app.register_blueprint(auth_supp_bp)
 
+    from controllers.store_controller import stores_bp
+    app.register_blueprint(stores_bp)
+
     return app
