@@ -4,6 +4,7 @@ from init import db, bcrypt
 from models.user import User
 from models.supplier import Supplier
 from models.store import Store
+from models.rating import Rating
 
 db_commands = Blueprint("db", __name__)
 
@@ -77,6 +78,29 @@ def seed_tables():
     ]
 
     db.session.add_all(stores)
+
+    ratings = [
+        Rating(
+            score="5",
+            review="Very happy with the service",
+            store=stores[1],
+            user=users[0]
+        ),
+        Rating(
+            score="3",
+            review="Not happy with the service",
+            store=stores[1],
+            user=users[1]
+        ),
+         Rating(
+            score="4",
+            review="Pretty happy with the service",
+            store=stores[2],
+            user=users[0]
+        ),
+    ]
+
+    db.session.add_all(ratings)  
 
     db.session.commit()
 

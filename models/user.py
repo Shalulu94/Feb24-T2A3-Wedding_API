@@ -13,6 +13,7 @@ class User(db.Model):
     contact = db.Column(db.Integer)
     is_admin = db.Column(db.Boolean, default=False)
 
+    ratings = db.relationship("Rating", back_populates="user")
 
 class UserSchema(ma.Schema):
     class Meta:
